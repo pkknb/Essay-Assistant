@@ -12,7 +12,8 @@ const TopicInput = () => {
       message.error('请输入研究主题！');
     } else {
       message.success(`主题保存成功：${topic}`);
-      // 这里可以跳转到框架上传页面
+      // 跳转到上传和编辑框架页面，并传递主题
+      navigate('/framework-upload-edit', { state: { topic } });
     }
   };
 
@@ -25,13 +26,8 @@ const TopicInput = () => {
         onChange={(e) => setTopic(e.target.value)}
       />
       <Button type="primary" onClick={handleSave} style={{ marginTop: '10px' }}>
-        保存主题
+        保存并上传框架
       </Button>
-      <div style={{ marginTop: '20px' }}>
-        <Button type="link" onClick={() => navigate('/questionnaire')}>
-          没有主题？点这里
-        </Button>
-      </div>
     </div>
   );
 };
